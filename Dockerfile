@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Install R and other needed packages
-RUN apt-get -y install r-base libcurl4-openssl-dev libxml2-dev
+RUN apt-get -y install r-base libcurl4-openssl-dev libxml2-dev git
 RUN R -e "install.packages(c('getopt', 'stringr', 'plyr', 'XML', 'RJSONIO'), lib='/usr/lib/R/library', dependencies = TRUE, repos='http://mirrors.ebi.ac.uk/CRAN')"
 
 # Install tool
