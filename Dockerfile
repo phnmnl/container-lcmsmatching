@@ -19,7 +19,7 @@ WORKDIR /files
 RUN git clone -b release-3.0 --recursive https://github.com/workflow4metabolomics/lcmsmatching
 
 # Make tool accessible through PATH (for PhenoMeNal project)
-ENV PATH=$PATH:/files/lcmsmatching/
+ENV PATH=$PATH:/files/lcmsmatching/r-msdb
 
 # Clean up
 RUN apt-get clean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
