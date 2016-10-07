@@ -16,7 +16,7 @@ RUN R -e "install.packages(c('getopt', 'stringr', 'plyr', 'XML', 'RJSONIO'), lib
 
 # Install tool
 WORKDIR /files
-RUN git clone -b release-3.1 --recursive https://github.com/workflow4metabolomics/lcmsmatching
+RUN git clone -b release-3.1.1 --recursive https://github.com/workflow4metabolomics/lcmsmatching
 
 # Make tool accessible through PATH (for PhenoMeNal project)
 ENV PATH=$PATH:/files/lcmsmatching/r-msdb
