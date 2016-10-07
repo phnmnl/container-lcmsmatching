@@ -2,6 +2,12 @@ FROM ubuntu:14.04
 
 MAINTAINER Pierrick Roger (pierrick.roger@gmail.com)
 
+ENV TOOL_VERSION=3.1.1
+ENV CONTAINER_VERSION=1.0
+
+LABEL version="${CONTAINER_VERSION}"
+LABEL tool_version="${TOOL_VERSION}"
+
 # Setup package repos
 RUN echo "deb http://mirrors.ebi.ac.uk/CRAN/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
@@ -16,7 +22,7 @@ RUN R -e "install.packages(c('getopt', 'stringr', 'plyr', 'XML', 'RJSONIO'), lib
 
 # Install tool
 WORKDIR /files
-RUN git clone -b release-3.1.1 --recursive https://github.com/workflow4metabolomics/lcmsmatching
+RUN git clone -b release-${TOOL_VERSION} --recursive https://github.com/workflow4metabolomics/lcmsmatching
 
 # Make tool accessible through PATH (for PhenoMeNal project)
 ENV PATH=$PATH:/files/lcmsmatching/r-msdb
