@@ -54,13 +54,21 @@ This tool performs LC/MS matching on an input list of MZ/RT values, using either
 
 - LCMS annotation.
 
-## Metabolomics Technologies
+## Functionality
 
-- LCMS.
+- Annotation / MS / L2a Library Spectrum Match
+- Post-processing
 
-## Data Analysis
+## Approaches
 
-- LCMS Annotation.
+- Metabolomics / Untargeted
+  
+## Instrument Data Types
+
+- MS / LC-MS / Orbitrap LC-MS
+- MS / LC-MS / HPLC-MS
+- MS / LC-MS / UPLC-MS
+- MS / LC-MS / Centroid LC-MS
 
 ## Screenshots
 
