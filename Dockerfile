@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER Pierrick Roger (pierrick.roger@gmail.com)
 
 ENV TOOL_VERSION=3.1.6
-ENV CONTAINER_VERSION=1.1
+ENV CONTAINER_VERSION=1.2
 
 LABEL version="${CONTAINER_VERSION}"
 LABEL tool_version="${TOOL_VERSION}"
@@ -26,6 +26,8 @@ WORKDIR /files
 RUN git clone -b release/${TOOL_VERSION} --recursive https://github.com/workflow4metabolomics/lcmsmatching
 WORKDIR /files/lcmsmatching
 RUN ant
+WORKDIR /files/lcmsmatching/r-msdb/test
+RUN ant test.data
 
 # Make tool accessible through PATH (for PhenoMeNal project)
 ENV PATH=$PATH:/files/lcmsmatching/r-msdb
