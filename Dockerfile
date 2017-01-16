@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER Pierrick Roger (pierrick.roger@gmail.com)
 
 ENV TOOL_VERSION=3.1.6
-ENV CONTAINER_VERSION=1.2
+ENV CONTAINER_VERSION=1.3
 
 LABEL version="${CONTAINER_VERSION}"
 LABEL tool_version="${TOOL_VERSION}"
@@ -26,6 +26,10 @@ WORKDIR /files
 RUN git clone -b release/${TOOL_VERSION} --recursive https://github.com/workflow4metabolomics/lcmsmatching
 WORKDIR /files/lcmsmatching
 RUN ant
+ENV TOOL.PREFIX=
+RUN ant w4m.code
+RUN cp dist/code/lcmsmatching.xml lcmsmatching_config.xml
+RUN cp dist/code/*.py .
 WORKDIR /files/lcmsmatching/r-msdb/test
 RUN ant test.data
 
