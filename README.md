@@ -3,7 +3,7 @@
 ![Logo](w4m.png)
 
 # W4M LCMS matching
-Version: 3.1.1
+Version: 3.4.3
 
 ## Short description
 
